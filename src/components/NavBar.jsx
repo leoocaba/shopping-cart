@@ -20,7 +20,7 @@ export const NavBar = () => {
       className="navbar sticky-top bg-light border-bottom border-body"
       data-bs-theme="dark"
     >
-      <div className="container-fluid px-4">
+      <div className="container container-fluid px-3">
         <NavLink to="/" className="navbar-brand text-dark fw-bold" href="#">
           Shopping Cart
         </NavLink>
