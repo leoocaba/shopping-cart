@@ -10,6 +10,7 @@ const CardList = ({ products }) => {
             key={product.id}
             title={product.title}
             image={product.image}
+            category={product.category}
             description={product.description}
             price={product.price}
           />
