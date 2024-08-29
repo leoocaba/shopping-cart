@@ -7,10 +7,18 @@ export const BuyPage = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
-    const response = await fetch(URL_BASE);
-    const data = await response.json();
-    // console.log(data);
-    setProducts(data);
+    try {
+      const response = await fetch(URL_BASE);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
+      if (Array.isArray(data)) {
+        setProducts(data);
+      } else {
+        setProducts(data); // O maneja el error de otra manera
+      }
+    } catch (error) {
+      console.error('Failed to fetch products:', error.message);
+    }
   };
 
   useEffect(() => {
