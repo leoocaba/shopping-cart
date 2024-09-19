@@ -67,3 +67,30 @@
 .__shopping-cart-page .__card .__card-body img {
     height: 5rem;
 }
+
+/* Media-Queries Configuration */
+/* Mobile-first approach */
+
+/* Para pantallas móviles (menores a 768px) */
+@media (max-width: 768px) {
+    .__shopping-cart-page .__card .__card-body img {
+        width: 100%;
+        /* Ocupa el 100% del ancho disponible */
+        height: auto;
+        /* Escala proporcionalmente */
+        max-width: 100%;
+        /* Asegura que no exceda el tamaño del contenedor */
+    }
+}
+
+/* Tablets (landscape) and larger */
+@media (min-width: 768px) {}
+
+/* Small desktops and up */
+@media (min-width: 1024px) {}
+
+/* Large desktops */
+@media (min-width: 1440px) {}
+
+/* High-resolution displays */
+@media (min-resolution: 2dppx) {}

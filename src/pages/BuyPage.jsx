@@ -14,7 +14,7 @@ export const BuyPage = () => {
       if (Array.isArray(data)) {
         setProducts(data);
       } else {
-        setProducts(data); // O maneja el error de otra manera
+        setProducts(data);
       }
     } catch (error) {
       console.error('Failed to fetch products:', error.message);
