@@ -58,6 +58,15 @@
     overflow: hidden;
 }
 
+/* .__card .__card-body p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+} */
+
 /* Shopping cart page */
 
 .__shoping-cart-page {
