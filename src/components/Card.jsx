@@ -9,6 +9,12 @@ const Card = ({ title, image, category, description, price }) => {
     setIsExpanded(!isExpanded);
   };
 
+  const [added, setAdded] = useState(false)
+
+  const clicked = () => {
+    setAdded(!added)
+  }
+
   return (
     <div className="col mb-4">
       <div className="card h-100 border border-0 mx-2 my-3 py-0">
@@ -23,9 +29,8 @@ const Card = ({ title, image, category, description, price }) => {
           </h5>
           <div className={`${!isExpanded ? "d-flex" : "d-flex flex-column"} `}>
             <p
-              className={`card-text my-auto ${
-                !isExpanded ? "__truncated-text" : ""
-              }`}
+              className={`card-text my-auto ${!isExpanded ? "__truncated-text" : ""
+                }`}
             >
               {description}
             </p>
@@ -38,7 +43,7 @@ const Card = ({ title, image, category, description, price }) => {
           </div>
         </div>
         <div className="__card-footer d-flex flex-row justify-content-between border border-0 m-0 mb-3 py-0 px-3">
-          <h6 className="text-muted px-2 my-auto">U$S {price}</h6>
+          <h6 className="px-2 my-auto">U$S {price}</h6>
           <div className=" col __actions d-flex flex-row justify-content-end ml-auto px-3">
             <button
               type="button"
@@ -48,9 +53,10 @@ const Card = ({ title, image, category, description, price }) => {
             </button>
             <button
               type="button"
-              className="btn btn-primary btn-sm rounded-pill mx-1"
+              className={`${!added ? "btn btn-primary btn-sm rounded-pill mx-1" : "btn btn-danger btn-sm rounded-pill mx-1"}`}
+              onClick={clicked}
             >
-              Add to cart
+              {!added ? "Add to cart" : "Remove"}
             </button>
           </div>
         </div>
