@@ -16,7 +16,7 @@ export const ShoppingCart = () => {
           path="/my-shopping-cart"
           element={<ShoppingCartPage></ShoppingCartPage>}
         ></Route>
-        <Route path="/*" element={<Navigate to="/" />}></Route>
+        <Route path="/*" element={<Navigate to="/shopping-cart" />}></Route>
       </Routes>
     </>
   );
