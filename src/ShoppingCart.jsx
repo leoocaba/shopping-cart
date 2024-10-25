@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Routes, Route} from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
 import { BuyPage } from "./pages/BuyPage";
 import { ShoppingCartPage } from "./pages/ShoppingCartPage";
@@ -9,7 +9,7 @@ export const ShoppingCart = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<BuyPage></BuyPage>}>
+        <Route path="/shopping-cart" element={<BuyPage></BuyPage>}>
           {" "}
         </Route>
         <Route
