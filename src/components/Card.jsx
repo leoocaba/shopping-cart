@@ -3,7 +3,7 @@ import { useState } from "react";
 import ExpandLessSharpIcon from "@mui/icons-material/ExpandLessSharp";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const Card = ({ title, image, category, description, price }) => {
+const Card = ({ title, image, category, description, price, handleAdd, handleDelete, handleIncrease, handleDecrease }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const toggleTruncate = () => {
     setIsExpanded(!isExpanded);
@@ -12,8 +12,13 @@ const Card = ({ title, image, category, description, price }) => {
   const [added, setAdded] = useState(false)
 
   const clicked = () => {
-    setAdded(!added)
-  }
+    if (!added) {
+      handleAdd(); // Llamar a `handleAdd` solo si el producto no estaba en el carrito
+    } else {
+      handleDelete(); // Llamar a `handleDelete` si el producto ya estaba en el carrito
+    }
+    setAdded(!added); // Luego actualizar el estado `added`
+  };
 
   return (
     <div className="col mb-4">
