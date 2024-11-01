@@ -52,13 +52,13 @@ const Card = ({ title, image, category, description, price, handleAdd, handleDel
           <div className=" col __actions d-flex flex-row justify-content-end ml-auto px-3">
             <button
               type="button"
-              className="btn btn-outline-secondary btn-sm rounded-pill mx-2"
+              className="text-secondary btn btn-link btn-sm rounded text-wrap mx-2"
             >
               Details
             </button>
             <button
               type="button"
-              className={`${!added ? "btn btn-primary btn-sm rounded-pill mx-1" : "btn btn-danger btn-sm rounded-pill mx-1"}`}
+              className={`${!added ? "btn btn-primary btn-sm badge text-wrap mx-1" : "btn btn-danger btn-sm badge text-wrap mx-1"}`}
               onClick={clicked}
             >
               {!added ? "Add to cart" : "Remove"}

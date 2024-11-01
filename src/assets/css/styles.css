@@ -22,6 +22,10 @@
     /* Padding de lado */
 }
 
+/* .container .row .d-flex .__sticky-summary {
+    position: relative;
+} */
+
 .container .card img {
     aspect-ratio: 3/2;
     object-fit: contain;
