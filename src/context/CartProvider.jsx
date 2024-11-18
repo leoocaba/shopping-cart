@@ -9,12 +9,25 @@ const buysReducer = (state = initialState, action = {}) => {
             return [...state, action.payload]
 
         case '[CART] Incrementar cantidad compra':
-
-            break;
+            return state.map(item => {
+                const quant = item.quantity + 1
+                if (item.id === action.payload)
+                    return {
+                        ...item, quantity: quant
+                    }
+                return item
+            })
 
         case '[CART] Disminuir cantidad compra':
 
-            break;
+            return state.map(item => {
+                const quant = item.quantity - 1
+                if (item.id === action.payload && item.quantity > 1)
+                    return {
+                        ...item, quantity: quant
+                    }
+                return item
+            })
 
         case '[CART] Eliminar compra':
             return state.filter(buys => buys.id !== action.payload)
@@ -29,6 +42,7 @@ export const CartProvider = ({ children }) => {
     const [buysList, dispatch] = useReducer(buysReducer, initialState)
 
     const addBuys = (buys) => {
+        buys.quantity = 1
         const action = {
             type: '[CART] Agregar compra',
             payload: buys

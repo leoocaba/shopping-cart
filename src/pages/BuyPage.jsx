@@ -12,3 +12,5 @@ export const BuyPage = () => {
     </div>
   );
 };
+
+export default BuyPage;

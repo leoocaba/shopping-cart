@@ -8,3 +8,5 @@ export const ShoppingCartPage = () => {
     </div>
   );
 };
+
+export default ShoppingCartPage

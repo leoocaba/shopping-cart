@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { NavLink } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -15,13 +16,16 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export const NavBar = () => {
+
+  const { buysList } = useContext(CartContext)
+
   return (
     <nav
       className="navbar sticky-top bg-light border-bottom border-body"
       data-bs-theme="dark"
     >
       <div className="container container-fluid px-3">
-        <NavLink to="/" className="navbar-brand text-dark fw-bold" href="#">
+        <NavLink to="/" className="navbar-brand text-dark fw-bold" href="/">
           Shopping Cart
         </NavLink>
         <ul className="navbar-nav me-auto mb-lg-0">
@@ -38,7 +42,7 @@ export const NavBar = () => {
         </ul>
         <NavLink to="/my-shopping-cart">
           <IconButton aria-label="cart">
-            <StyledBadge badgeContent={4} color="primary">
+            <StyledBadge badgeContent={buysList == 0 ? "0" : buysList.length} color="primary">
               <ShoppingCartIcon />
             </StyledBadge>
           </IconButton>
@@ -47,3 +51,5 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+export default NavBar

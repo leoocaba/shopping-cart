@@ -2,10 +2,21 @@ import React, { useContext } from "react";
 import { PurchaseSummary } from "./PurchaseSummary";
 import { CartContext } from "../context/CartContext";
 import { Delete } from "@mui/icons-material";
+import { useEffect } from "react";
+
 
 export const CartDetails = () => {
 
   const { buysList, addBuys, increaseBuys, decreaseBuys, deleteBuys } = useContext(CartContext)
+
+  const calculateTotals = () => {
+    const totalAmount = buysList.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    const totalQuantity = buysList.reduce((total, item) => total + item.quantity, 0);
+
+    return { totalAmount, totalQuantity };
+  };
+
+  const { totalAmount, totalQuantity } = calculateTotals();
 
   return (
     <>
@@ -40,7 +51,7 @@ export const CartDetails = () => {
                           </p>
                           <button
                             type="button"
-                            className="btn btn-link text-danger text-start mx-md-3"
+                            className="btn btn-link text-danger text-start mx-md-2"
                             onClick={() => deleteBuys(item.id)}
                           >
                             Delete
@@ -52,20 +63,22 @@ export const CartDetails = () => {
                               className="btn text-danger fs-4 border border-0"
                               type="button"
                               id="button-minus"
+                              onClick={() => decreaseBuys(item.id)}
                             >
                               -
                             </button>
-                            <span className="badge text-bg-primary text-center text-dark p-auto m-auto ">1</span>
+                            <span className="badge text-bg-primary text-center text-dark p-auto m-auto "> {item.quantity} </span>
                             <button
                               className="btn text-primary fs-4 border border-0"
                               type="button"
                               id="button-plus"
+                              onClick={() => increaseBuys(item.id)}
                             >
                               +
                             </button>
                           </div>
                           <div className="__price-small d-inline-flex">
-                            <span className="fw-semibold py-2 pl-2 m-auto"> {item.price} </span>
+                            <span className="fw-semibold py-2 pl-2 m-auto"> U$S {item.price} </span>
                           </div>
                         </div>
                       </div>
@@ -75,8 +88,8 @@ export const CartDetails = () => {
               }
             </div>
             <div className="__sticky-summary col-12 col-sm-12 col-md-12 col-lg-3 mx-auto p-2 p-lg-3 px-lg-1">
-              <div className="sticky-top">
-                <PurchaseSummary></PurchaseSummary>
+              <div className="">
+                <PurchaseSummary totalAmount={totalAmount} totalQuantity={totalQuantity} ></PurchaseSummary>
               </div>
             </div>
           </div>
