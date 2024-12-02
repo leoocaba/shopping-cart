@@ -34,7 +34,7 @@ https://leoocaba.github.io/shopping-cart/
 ## 🛠 Instalación  
 
 1. Cloná este repositorio:  
-   git clone https://github.com/tuusuario/shopping-cart.git
+   git clone https://github.com/leoocaba/shopping-cart.git
 2. Instalá las dependencias:
    npm install
 3. Iniciá el proyecto:
